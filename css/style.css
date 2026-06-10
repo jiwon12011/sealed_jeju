@@ -1,0 +1,652 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+/* ============ RESET & COMMON ============ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #2C2623; /* 깊은 브라운이 도는 차콜 */
+  background-color: #F8F7F4; /* 시안 특유의 은은한 웜그레이 */
+  letter-spacing: -0.02em;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Serif Font for Brand Identity */
+.serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* ============ REVEAL ANIMATION (ScrollTrigger) ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============ HEADER ============ */
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0));
+}
+
+header .container {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 .logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+}
+
+header nav .gnb {
+  display: flex;
+  gap: 50px;
+}
+
+header nav .gnb > li {
+  position: relative;
+}
+
+header nav .gnb > li > a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  padding: 10px 0;
+  display: block;
+  transition: color 0.3s;
+}
+
+header nav .gnb > li:hover > a {
+  color: #D4C3B3;
+}
+
+/* 드롭다운 메뉴 (LNB) */
+header nav .lnb {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: #fff;
+  min-width: 160px;
+  padding: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+header nav .gnb > li:hover .lnb {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+header nav .lnb a {
+  display: block;
+  padding: 10px 24px;
+  font-size: 14px;
+  color: #555;
+  transition: all 0.3s;
+}
+
+header nav .lnb a:hover {
+  background-color: #F4F3EF;
+  color: #2C2623;
+}
+
+header .login_box {
+  display: flex;
+  gap: 20px;
+}
+
+header .login_box a svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  transition: stroke 0.3s;
+}
+
+header .login_box a:hover svg {
+  stroke: #D4C3B3;
+}
+
+/* ============ HERO (Main Visual) ============ */
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 750px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+#hero .hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#hero .hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.15); /* 이미지 슬쩍 톤 다운 */
+}
+
+#hero .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+#hero .textbox {
+  max-width: 600px;
+}
+
+#hero .hero_title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  letter-spacing: 0;
+}
+
+#hero .hero_subtitle {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  color: #F4F3EF;
+}
+
+#hero .hero_desc {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  opacity: 0.85;
+  margin-bottom: 40px;
+}
+
+#hero .btn-group {
+  display: flex;
+  gap: 15px;
+}
+
+#hero .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+#hero .btn--dark {
+  background-color: #2C2623;
+  color: #fff;
+}
+
+#hero .btn--dark:hover {
+  background-color: #413834;
+}
+
+#hero .btn--light {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  backdrop-filter: blur(4px);
+}
+
+#hero .btn--light:hover {
+  background-color: #fff;
+  color: #2C2623;
+}
+
+/* 공통 타이틀 속성 */
+.sec_label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #8A8279;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.sec_title {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.sec_desc {
+  font-size: 16px;
+  color: #6E665E;
+  font-weight: 300;
+}
+
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2C2623;
+  border-bottom: 1px solid #2C2623;
+  padding-bottom: 4px;
+  margin-top: 24px;
+  transition: all 0.3s;
+}
+
+.btn-text:hover {
+  gap: 14px;
+  color: #8A8279;
+  border-color: #8A8279;
+}
+
+/* ============ SECTION 1 · COLLECTION ============ */
+#section1 {
+  padding: 140px 0;
+}
+
+#section1 .sec_header {
+  margin-bottom: 60px;
+}
+
+/* 아치형을 포함한 카드 그리드 배치 */
+.collection_grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 30px;
+  align-items: end;
+}
+
+.collection_grid .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.collection_grid .card .img_box {
+  width: 100%;
+  overflow: hidden;
+  background-color: #EAE8E3;
+}
+
+.collection_grid .card img {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.collection_grid .card:hover img {
+  transform: scale(1.05);
+}
+
+/* 메인 사각형 카드 큰 소스 */
+.collection_grid .card--main .img_box {
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
+.collection_grid .card--main .card_txt {
+  margin-top: 20px;
+}
+
+/* 아치형 카드 스타일링 핵심 */
+.collection_grid .card--arch .img_box {
+  aspect-ratio: 1 / 1.5; /* 세로가 긴 형태 */
+  border-radius: 200px 200px 0 0; /* 시안 상단 아치 효과 */
+}
+
+.collection_grid .card--arch h3 {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 20px;
+  color: #4A423D;
+}
+
+/* ============ SECTION 2 · STORY ============ */
+#section2 {
+  padding: 100px 0;
+  background-color: #F1F0EC; /* 미세하게 대비를 주는 배경색 */
+}
+
+#section2 .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+#section2 .left_box {
+  width: 40%;
+}
+
+#section2 .left_box h2 {
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+
+#section2 .left_box h2 strong {
+  font-weight: 600;
+}
+
+/* 하단 작은 썸네일 박스 */
+#section2 .thumbs {
+  display: flex;
+  gap: 12px;
+  margin: 40px 0 20px;
+}
+
+#section2 .thumb_item {
+  width: 70px;
+  height: 70px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+#section2 .thumb_item.active,
+#section2 .thumb_item:hover {
+  opacity: 1;
+  border-color: #2C2623;
+}
+
+/* 우측 대표 이미지 프레임 */
+#section2 .right_box {
+  width: 55%;
+}
+
+#section2 .right_box .frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+/* ============ SECTION 3 · BANNER ============ */
+#section3_banner {
+  position: relative;
+  width: 100%;
+  padding: 160px 0;
+  color: #fff;
+  overflow: hidden;
+}
+
+#section3_banner .banner_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#section3_banner .banner_bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(44, 38, 35, 0.25); /* 오버레이 글자 가독성 확보 */
+}
+
+#section3_banner .container {
+  position: relative;
+  z-index: 2;
+}
+
+#section3_banner .banner_txt {
+  max-width: 550px;
+}
+
+#section3_banner .banner_txt .label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  display: block;
+  margin-bottom: 16px;
+  color: #EAE8E3;
+}
+
+#section3_banner .banner_txt h2 {
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+#section3_banner .banner_txt h2 strong {
+  font-weight: 600;
+}
+
+#section3_banner .banner_txt p {
+  font-weight: 300;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+#section3_banner .banner_txt .btn-text {
+  color: #fff;
+  border-color: #fff;
+  margin-top: 0;
+}
+
+/* ============ SECTION 4 · BRAND ESSENCE ============ */
+#section4_essence {
+  padding: 160px 0;
+}
+
+#section4_essence .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+}
+
+#section4_essence .left_box {
+  width: 45%;
+}
+
+#section4_essence .left_box .img_box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.06);
+}
+
+#section4_essence .right_box {
+  width: 50%;
+  position: relative;
+}
+
+#section4_essence .right_box h2 {
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+#section4_essence .right_box .desc {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #6E665E;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+/* 우측 하단 여백 스탬프 데코 레이어 */
+#section4_essence .stamp_deco {
+  position: absolute;
+  bottom: -40px;
+  right: 40px;
+  width: 100px;
+  height: 100px;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background-color: #F1F0EC;
+  border-top: 1px solid #E5E3DF;
+  color: #5A524C;
+  font-size: 14px;
+}
+
+footer .f-top {
+  border-bottom: 1px solid #E5E3DF;
+  padding: 40px 0;
+}
+
+footer .f-top .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .f-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #2C2623;
+}
+
+footer .f-logo .f-tagline {
+  display: block;
+  margin-top: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: #6E665E;
+}
+
+footer .f-nav {
+  display: flex;
+  gap: 30px;
+}
+
+footer .f-nav a {
+  color: #6E665E;
+  transition: color 0.3s;
+}
+
+footer .f-nav a.strong {
+  font-weight: 700;
+  color: #2C2623;
+}
+
+footer .f-nav a:hover {
+  color: #2C2623;
+}
+
+footer .f-bottom {
+  padding: 40px 0 50px;
+}
+
+footer .f-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+footer .f-info .row {
+  font-weight: 300;
+  color: #7A726A;
+}
+
+footer .f-info .row b {
+  font-weight: 500;
+  color: #4A423D;
+}
+
+footer .f-info .sep {
+  margin: 0 10px;
+  color: #D5D3CF;
+}
+
+footer .copy {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #9A928A;
+}
+
+/* ============ RESPONSIVE (반응형 대응) ============ */
+@media (max-width: 1024px) {
+  .collection_grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .collection_grid .card--main {
+    grid-column: span 2;
+  }
+  #section2 .container,
+  #section4_essence .container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  #section2 .left_box, #section2 .right_box,
+  #section4_essence .left_box, #section4_essence .right_box {
+    width: 100%;
+  }
+}
