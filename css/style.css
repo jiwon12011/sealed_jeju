@@ -17,10 +17,22 @@ a {
 }
 
 img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 컨테이너를 꽉 채워야 하는 '디자인 이미지'에만 강제 fill.
+   (Cafe24가 서브페이지에 넣는 하트·돋보기·자물쇠 등 작은 아이콘 img는 제외) */
+#hero .hero-bg img,
+.collection_grid .card .img_box img,
+#section2 .thumb_item img,
+#section2 .right_box .frame img,
+#section3_banner .banner_bg img,
+#section4_essence .left_box .img_box img,
+#section4_essence .stamp_deco img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 body {
@@ -59,12 +71,12 @@ body {
 /* ============ HEADER ============ */
 header {
   width: 100%;
-  position: absolute;
+  position: relative; /* 공중에 안 뜨게 → 헤더 밑에서부터 내용이 시작됨 */
   top: 0;
   left: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0));
+  border-bottom: 1px solid #E5E3DF;
+  background: #fff; /* 불투명 헤더 배경 */
 }
 
 header .container {
@@ -78,7 +90,7 @@ header h1 .logo {
   font-family: 'Cormorant Garamond', serif;
   font-size: 32px;
   font-weight: 600;
-  color: #fff;
+  color: #2C2623;
 }
 
 header nav .gnb {
@@ -93,14 +105,14 @@ header nav .gnb > li {
 header nav .gnb > li > a {
   font-size: 16px;
   font-weight: 500;
-  color: #fff;
+  color: #2C2623;
   padding: 10px 0;
   display: block;
   transition: color 0.3s;
 }
 
 header nav .gnb > li:hover > a {
-  color: #D4C3B3;
+  color: #8C6E54;
 }
 
 /* 드롭다운 메뉴 (LNB) */
@@ -146,12 +158,12 @@ header .login_box {
 header .login_box a svg {
   width: 22px;
   height: 22px;
-  stroke: #fff;
+  stroke: #2C2623;
   transition: stroke 0.3s;
 }
 
 header .login_box a:hover svg {
-  stroke: #D4C3B3;
+  stroke: #8C6E54;
 }
 
 /* ============ HERO (Main Visual) ============ */
